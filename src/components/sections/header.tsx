@@ -9,12 +9,29 @@ import { cn } from "@/lib/utils";
 import { Locale } from "@/lib/definitions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useRouter, usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+
+// Add language configuration
+const LANGUAGES = {
+  en: { label: 'English', flag: '🇬🇧' },
+  de: { label: 'Deutsch', flag: '🇩🇪' },
+  fr: { label: 'Français', flag: '🇫🇷' },
+} as const;
 
 interface HeaderProps {
   lang: Locale;
 }
 
 export default function Header({ lang }: HeaderProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [addBorder, setAddBorder] = useState(false);
 
   useEffect(() => {
@@ -32,6 +49,11 @@ export default function Header({ lang }: HeaderProps) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  function handleLanguageChange(newLang: Locale) {
+    const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
+    router.push(newPath);
+  }
 
   return (
     <header
@@ -56,6 +78,32 @@ export default function Header({ lang }: HeaderProps) {
             </nav>
 
             <div className="gap-2 flex">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-[130px] justify-start gap-2"
+                  >
+                    <span>{LANGUAGES[lang].flag}</span>
+                    <span>{LANGUAGES[lang].label}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-[130px]">
+                  {Object.entries(LANGUAGES).map(([code, { label, flag }]) => (
+                    <DropdownMenuItem
+                      key={code}
+                      onClick={() => handleLanguageChange(code as Locale)}
+                      className="gap-2 cursor-pointer"
+                      disabled={code === lang}
+                    >
+                      <span>{flag}</span>
+                      <span>{label}</span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               <Link
                 href={`/${lang}/login`}
                 className={buttonVariants({ variant: "outline" })}

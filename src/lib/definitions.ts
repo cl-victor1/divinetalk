@@ -26,4 +26,28 @@ export type Activity = {
   ts: number;
 };
 
-export type Locale = (typeof i18n)["locales"][number];
+export type Locale = "en" | "de" | "fr";
+
+export interface HeaderItem {
+  trigger?: string;
+  label?: string;
+  href?: string;
+  content?: {
+    main?: {
+      icon: React.ReactNode;
+      title: string;
+      description: string;
+      href: string;
+    };
+    items: {
+      title: string;
+      description: string;
+      href: string;
+    }[];
+  };
+}
+
+export interface SiteConfig {
+  header: HeaderItem[];
+  // ... other config properties
+}
