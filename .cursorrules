@@ -120,6 +120,6 @@ Output Expectations
 - Explanations Include brief explanations to clarify complex implementations when necessary.
 - Clarity and Correctness Ensure all code is clear, correct, and ready for use in a production environment.
 - Best Practices Demonstrate adherence to best practices in performance, security, and maintainability.
-- Please make sure that all non-static routes export the following edge runtime route segment config: export const runtime = 'edge';
+- Please make sure that all non-static routes and pages export the following edge runtime route segment config: export const runtime = 'edge';
 
   

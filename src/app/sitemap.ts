@@ -2,6 +2,7 @@ import { getBlogPosts } from "@/lib/blog";
 import { MetadataRoute } from "next";
 import { headers } from "next/headers";
 
+export const runtime = 'edge';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allPosts = await getBlogPosts();
   const headersList = headers();

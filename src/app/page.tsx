@@ -12,7 +12,7 @@ import Problem from "@/components/sections/problem";
 import Solution from "@/components/sections/solution";
 import Testimonials from "@/components/sections/testimonials";
 import TestimonialsCarousel from "@/components/sections/testimonials-carousel";
-
+export const runtime = 'edge';
 export default function Home() {
   return (
     <main>
