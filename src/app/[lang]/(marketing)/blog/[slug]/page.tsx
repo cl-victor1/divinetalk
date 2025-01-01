@@ -7,15 +7,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-
+import { Locale } from "@/lib/definitions";
 export async function generateMetadata({
   params,
 }: {
   params: {
     slug: string;
+    lang: Locale;
   };
 }): Promise<Metadata | undefined> {
-  let post = await getPost(params.slug);
+  let post = await getPost(params.slug, params.lang);
   let {
     title,
     publishedAt: publishedTime,
@@ -52,9 +53,10 @@ export default async function Blog({
 }: {
   params: {
     slug: string;
+    lang: Locale;
   };
 }) {
-  let post = await getPost(params.slug);
+  let post = await getPost(params.slug, params.lang);
   if (!post) {
     notFound();
   }
@@ -129,7 +131,7 @@ export default async function Blog({
           dangerouslySetInnerHTML={{ __html: post.source }}
         ></article>
       </div>
-      <CtaSection />
+      <CtaSection lang={params.lang} />
     </section>
   );
 }

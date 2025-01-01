@@ -25,6 +25,12 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Add check for static file extensions
+  const isStaticFile = /\.(jpg|jpeg|png|gif|ico|css|js)$/i.test(pathname);
+  if (isStaticFile) {
+    return;
+  }
+
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -49,5 +55,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|images|public|favicon.ico).*)"],
 };

@@ -2,13 +2,17 @@ import BlogCard from "@/components/blog-card";
 import { getBlogPosts } from "@/lib/blog";
 import { siteConfig } from "@/lib/config";
 import { constructMetadata } from "@/lib/utils";
-
+import { Locale } from "@/lib/definitions";
 export const metadata = constructMetadata({
   title: "Blog",
   description: `Latest news and updates from ${siteConfig.name}.`,
 });
 
-export default async function Blog() {
+export default async function Blog({
+  params,
+}: {
+  params: { lang: Locale };
+}) {
   const allPosts = await getBlogPosts();
 
   const articles = await Promise.all(
@@ -30,7 +34,7 @@ export default async function Blog() {
       <div className="min-h-[50vh] bg-white/50 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur-lg">
         <div className="mx-auto grid w-full max-w-screen-xl grid-cols-1 gap-8 px-2.5 py-10 lg:px-20 lg:grid-cols-3">
           {articles.map((data, idx) => (
-            <BlogCard key={data.slug} data={data} priority={idx <= 1} />
+            <BlogCard key={data.slug} data={data} priority={idx <= 1} lang={params.lang} />
           ))}
         </div>
       </div>
