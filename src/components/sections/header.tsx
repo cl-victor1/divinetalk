@@ -6,10 +6,15 @@ import Menu from "@/components/menu";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { Locale } from "@/lib/definitions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Header() {
+interface HeaderProps {
+  lang: Locale;
+}
+
+export default function Header({ lang }: HeaderProps) {
   const [addBorder, setAddBorder] = useState(false);
 
   useEffect(() => {
@@ -36,7 +41,7 @@ export default function Header() {
     >
       <div className="flex justify-between items-center container">
         <Link
-          href="/"
+          href={`/${lang}`}
           title="brand-logo"
           className="relative mr-6 flex items-center space-x-2"
         >
@@ -52,13 +57,13 @@ export default function Header() {
 
             <div className="gap-2 flex">
               <Link
-                href="/login"
+                href={`/${lang}/login`}
                 className={buttonVariants({ variant: "outline" })}
               >
                 Login
               </Link>
               <Link
-                href="/signup"
+                href={`/${lang}/signup`}
                 className={cn(
                   buttonVariants({ variant: "default" }),
                   "w-full sm:w-auto text-background flex gap-2"

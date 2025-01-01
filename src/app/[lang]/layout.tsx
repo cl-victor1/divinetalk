@@ -3,7 +3,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn, constructMetadata } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "../globals.css";
+import { getUser } from "@/lib/data";
+import { Locale } from "@/lib/definitions";
+
+import { i18n } from "../../../i18n-config";
 
 export const metadata: Metadata = constructMetadata({});
 
@@ -15,13 +19,19 @@ export const viewport: Viewport = {
   ],
 };
 
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
 export default function RootLayout({
   children,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />

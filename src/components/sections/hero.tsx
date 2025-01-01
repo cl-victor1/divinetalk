@@ -1,29 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import { Icons } from "@/components/icons";
 import HeroVideoDialog from "@/components/magicui/hero-video";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Locale } from "@/lib/definitions";
 
 const ease = [0.16, 1, 0.3, 1];
 
-function HeroPill() {
+interface HeroProps {
+  lang: Locale;
+  messages: Record<string, string>;
+}
+
+function HeroPill({ lang, messages }: HeroProps) {
   return (
     <motion.a
-      href="/blog/introducing-acme-ai"
+      href={`/${lang}/blog/introducing-acme-ai`}
       className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
     >
       <div className="w-fit rounded-full bg-accent px-2 py-0.5 text-center text-xs font-medium text-primary sm:text-sm">
-        📣 Announcement
+        {messages["page.home.announcement.badge"]}
       </div>
       <p className="text-xs font-medium text-primary sm:text-sm">
-        Introducing Acme.ai
+        {messages["page.home.announcement.text"]}
       </p>
       <svg
         width="12"
@@ -42,7 +47,9 @@ function HeroPill() {
   );
 }
 
-function HeroTitles() {
+function HeroTitles({ lang, messages }: HeroProps) {
+  const titleWords = messages["page.home.hero.title"].split(" ");
+
   return (
     <div className="flex w-full max-w-2xl flex-col space-y-4 overflow-hidden pt-8">
       <motion.h1
@@ -55,7 +62,7 @@ function HeroTitles() {
           staggerChildren: 0.2,
         }}
       >
-        {["Automate", "your", "workflow", "with AI"].map((text, index) => (
+        {titleWords.map((text, index) => (
           <motion.span
             key={index}
             className="inline-block px-1 md:px-2 text-balance font-semibold"
@@ -81,13 +88,13 @@ function HeroTitles() {
           ease,
         }}
       >
-        No matter what problem you have, our AI can help you solve it.
+        {messages["page.home.hero.subtitle"]}
       </motion.p>
     </div>
   );
 }
 
-function HeroCTA() {
+function HeroCTA({ lang, messages }: HeroProps) {
   return (
     <>
       <motion.div
@@ -97,14 +104,14 @@ function HeroCTA() {
         transition={{ delay: 0.8, duration: 0.8, ease }}
       >
         <Link
-          href="/signup"
+          href={`/${lang}/signup`}
           className={cn(
             buttonVariants({ variant: "default" }),
             "w-full sm:w-auto text-background flex gap-2"
           )}
         >
           <Icons.logo className="h-6 w-6" />
-          Get started for free
+          {messages["page.home.hero.cta"]}
         </Link>
       </motion.div>
       <motion.p
@@ -113,7 +120,7 @@ function HeroCTA() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
       >
-        7 day free trial. No credit card required.
+        {messages["page.home.hero.trial"]}
       </motion.p>
     </>
   );
@@ -138,13 +145,13 @@ function HeroImage() {
   );
 }
 
-export default function Hero2() {
+export default function Hero({ lang, messages }: HeroProps) {
   return (
     <section id="hero">
       <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
-        <HeroPill />
-        <HeroTitles />
-        <HeroCTA />
+        <HeroPill lang={lang} messages={messages} />
+        <HeroTitles lang={lang} messages={messages} />
+        <HeroCTA lang={lang} messages={messages} />
         <HeroImage />
         <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-background via-background to-transparent lg:h-1/4"></div>
       </div>

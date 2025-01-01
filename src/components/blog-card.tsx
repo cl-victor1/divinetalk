@@ -2,16 +2,17 @@ import { Post } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Locale } from "@/lib/definitions";
 
-export default function BlogCard({
-  data,
-  priority,
-}: {
+interface BlogCardProps {
   data: Post;
   priority?: boolean;
-}) {
+  lang: Locale;
+}
+
+export default function BlogCard({ data, priority, lang }: BlogCardProps) {
   return (
-    <Link href={`/blog/${data.slug}`} className="block">
+    <Link href={`/${lang}/blog/${data.slug}`} className="block">
       <div className="bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-shadow duration-200">
         {data.image && (
           <Image

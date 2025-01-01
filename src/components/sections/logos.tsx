@@ -1,5 +1,7 @@
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
+import { Locale } from "@/lib/definitions";
+import { getIntl } from "@/lib/intl";
 
 const companies = [
   "Google",
@@ -12,12 +14,18 @@ const companies = [
   "Spotify",
 ];
 
-export default function Logos() {
+interface LogosProps {
+  lang: Locale;
+}
+
+export default async function Logos({ lang }: LogosProps) {
+  const intl = await getIntl(lang);
+
   return (
     <section id="logos">
       <div className="container mx-auto px-4 md:px-8 py-12">
         <h3 className="text-center text-sm font-semibold text-gray-500">
-          TRUSTED BY LEADING TEAMS
+          {intl.formatMessage({ id: "page.home.logos.title" })}
         </h3>
         <div className="relative mt-6">
           <Marquee className="max-w-full [--duration:40s]">

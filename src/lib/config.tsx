@@ -16,6 +16,7 @@ export const siteConfig = {
     discord: "https://discord.gg/87p2vpsat5",
     github: "https://github.com/magicuidesign/magicui",
     instagram: "https://instagram.com/magicuidesign/",
+    youtube: "https://youtube.com/@magicuidesign",
   },
   header: [
     {

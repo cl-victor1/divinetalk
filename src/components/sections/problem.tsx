@@ -2,33 +2,38 @@ import BlurFade from "@/components/magicui/blur-fade";
 import Section from "@/components/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Shield, Zap } from "lucide-react";
+import { Locale } from "@/lib/definitions";
+import { getIntl } from "@/lib/intl";
 
-const problems = [
-  {
-    title: "Data Overload",
-    description:
-      "Businesses struggle to make sense of vast amounts of complex data, missing out on valuable insights that could drive growth and innovation.",
-    icon: Brain,
-  },
-  {
-    title: "Slow Decision-Making",
-    description:
-      "Traditional data processing methods are too slow, causing businesses to lag behind market changes and miss crucial opportunities.",
-    icon: Zap,
-  },
-  {
-    title: "Data Security Concerns",
-    description:
-      "With increasing cyber threats, businesses worry about the safety of their sensitive information when adopting new technologies.",
-    icon: Shield,
-  },
-];
+interface ProblemProps {
+  lang: Locale;
+}
 
-export default function Component() {
+export default async function Problem({ lang }: ProblemProps) {
+  const intl = await getIntl(lang);
+
+  const problems = [
+    {
+      title: intl.formatMessage({ id: "page.home.problem.data.title" }),
+      description: intl.formatMessage({ id: "page.home.problem.data.description" }),
+      icon: Brain,
+    },
+    {
+      title: intl.formatMessage({ id: "page.home.problem.speed.title" }),
+      description: intl.formatMessage({ id: "page.home.problem.speed.description" }),
+      icon: Zap,
+    },
+    {
+      title: intl.formatMessage({ id: "page.home.problem.security.title" }),
+      description: intl.formatMessage({ id: "page.home.problem.security.description" }),
+      icon: Shield,
+    },
+  ];
+
   return (
     <Section
-      title="Problem"
-      subtitle="Manually entering your data is a hassle."
+      title={intl.formatMessage({ id: "page.home.problem.title" })}
+      subtitle={intl.formatMessage({ id: "page.home.problem.subtitle" })}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         {problems.map((problem, index) => (
