@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-export const runtime = 'edge';
+
 export async function generateMetadata({
   params,
 }: {
