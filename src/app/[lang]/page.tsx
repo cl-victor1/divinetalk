@@ -45,7 +45,7 @@ export default async function Home({ params: { lang } }: HomeProps) {
       <Testimonials lang={lang} messages={messages} />
       <Pricing lang={lang} messages={messages} />
       <FAQ lang={lang} />
-      <Blog lang={lang} />
+      {/* <Blog lang={lang} /> */}
       <CTA lang={lang}  />
       <Footer lang={lang} />
     </main>
