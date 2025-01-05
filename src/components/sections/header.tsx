@@ -23,6 +23,10 @@ const LANGUAGES = {
   en: { label: 'English', flag: '🇬🇧' },
   de: { label: 'Deutsch', flag: '🇩🇪' },
   fr: { label: 'Français', flag: '🇫🇷' },
+  es: { label: 'Español', flag: '🇪🇸' },
+  zh: { label: '中文', flag: '🇨🇳' },
+  pt: { label: 'Português', flag: '🇧🇷' },
+  it: { label: 'Italiano', flag: '🇮🇹' },
 } as const;
 
 interface HeaderProps {
