@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Add check for static file extensions
-  const isStaticFile = /\.(jpg|jpeg|png|gif|ico|css|js)$/i.test(pathname);
+  const isStaticFile = /\.(jpg|jpeg|png|gif|ico|css|js|xml|svg)$/i.test(pathname);
   if (isStaticFile) {
     return;
   }
