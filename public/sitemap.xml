@@ -35,27 +35,27 @@
 
 
 <url>
-  <loc>https://divinetalk.ai/zh</loc>
+  <loc>https://divinetalk.ai/zh-TW</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://divinetalk.ai/zh/blog</loc>
+  <loc>https://divinetalk.ai/zh-TW/blog</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://divinetalk.ai/zh/login</loc>
+  <loc>https://divinetalk.ai/zh-TW/login</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://divinetalk.ai/zh/signup</loc>
+  <loc>https://divinetalk.ai/zh-TW/signup</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://divinetalk.ai/zh/blog/introducing-acme-ai</loc>
+  <loc>https://divinetalk.ai/zh-TW/blog/introducing-acme-ai</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -188,6 +188,58 @@
 </url>
 <url>
   <loc>https://divinetalk.ai/pt/blog/introducing-acme-ai</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://divinetalk.ai/ru</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+    <loc>https://divinetalk.ai/ru/blog</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ru/login</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ru/signup</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ru/blog/introducing-acme-ai</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://divinetalk.ai/ko</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+    <loc>https://divinetalk.ai/ko/blog</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ko/login</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ko/signup</loc>
+  <lastmod>2025-01-05T15:02:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://divinetalk.ai/ko/blog/introducing-acme-ai</loc>
   <lastmod>2025-01-05T15:02:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
