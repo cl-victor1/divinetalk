@@ -117,7 +117,7 @@ export default function Header({ lang }: HeaderProps) {
                 Login
               </Link>
               <Link
-                href={`/${lang}/contact`}
+                href={`/${lang}/contact`} // TODO: change to signup
                 className={cn(
                   buttonVariants({ variant: "default" }),
                   "w-full sm:w-auto text-background flex gap-2"
