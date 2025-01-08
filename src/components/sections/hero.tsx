@@ -104,7 +104,7 @@ function HeroCTA({ lang, messages }: HeroProps) {
         transition={{ delay: 0.8, duration: 0.8, ease }}
       >
         <Link
-          href={`/${lang}/signup`}
+          href={`/${lang}/contact`}  // 需要修改
           className={cn(
             buttonVariants({ variant: "default" }),
             "w-full sm:w-auto text-background flex gap-2"

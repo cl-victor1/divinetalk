@@ -34,7 +34,6 @@ export default async function Home({ params: { lang } }: HomeProps) {
 
   return (
     <main>
-      <Header lang={lang}   />
       <Hero lang={lang} messages={messages} />
       <Logos lang={lang} />
       <Problem lang={lang}  />
@@ -47,7 +46,6 @@ export default async function Home({ params: { lang } }: HomeProps) {
       <FAQ lang={lang} />
       {/* <Blog lang={lang} /> */}
       <CTA lang={lang}  />
-      <Footer lang={lang} />
     </main>
   );
 }

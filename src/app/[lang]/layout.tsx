@@ -6,6 +6,8 @@ import type { Metadata, Viewport } from "next";
 import "../globals.css";
 import { getUser } from "@/lib/data";
 import { Locale } from "@/lib/definitions";
+import Footer from "@/components/sections/footer";
+import Header from "@/components/sections/header";
 
 import { i18n } from "../../../i18n-config";
 
@@ -56,7 +58,9 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false}
         >
+          <Header lang={lang}   />
           {children}
+          <Footer lang={lang} />
           <ThemeToggle />
           <TailwindIndicator />
         </ThemeProvider>
