@@ -159,5 +159,8 @@
   "page.home.testimonials-carousel.6.role": "Ministro de la Iglesia",
   "page.home.testimonials-carousel.7.text": "La interacción por voz se siente natural y crea una experiencia espiritual verdaderamente inmersiva.",
   "page.home.testimonials-carousel.7.name": "Gracia Johnson",
-  "page.home.testimonials-carousel.7.role": "Participante Regular"
+  "page.home.testimonials-carousel.7.role": "Participante Regular",
+  "page.contact.title": "Cuéntanos lo que quieres",
+  "page.contact.description": "¿Qué tipo de conversaciones religiosas te gustaría tener? Háblanos de qué figuras religiosas o temas te gustaría explorar en tus conversaciones.",
+  "common.returnHome": "Volver a Inicio"
 } 

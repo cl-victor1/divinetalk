@@ -159,5 +159,8 @@
   "page.home.testimonials-carousel.6.role": "Ministre du culte",
   "page.home.testimonials-carousel.7.text": "L'interaction vocale est naturelle et crée une expérience spirituelle vraiment immersive.",
   "page.home.testimonials-carousel.7.name": "Grâce Johnson",
-  "page.home.testimonials-carousel.7.role": "Participante régulière"
+  "page.home.testimonials-carousel.7.role": "Participante régulière",
+  "page.contact.title": "Dites-nous ce que vous voulez",
+  "page.contact.description": "Quel type de conversations religieuses aimeriez-vous avoir ? Faites-nous savoir quelles figures religieuses ou sujets vous aimeriez explorer dans vos dialogues.",
+  "common.returnHome": "Retour à l'accueil"
 }

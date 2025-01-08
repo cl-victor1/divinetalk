@@ -20,13 +20,15 @@ import { Button } from "@/components/ui/button";
 
 // Add language configuration
 const LANGUAGES = {
-  en: { label: 'English', flag: '🇬🇧' },
+  en: { label: 'English', flag: '🇺🇸' },
   de: { label: 'Deutsch', flag: '🇩🇪' },
   fr: { label: 'Français', flag: '🇫🇷' },
   es: { label: 'Español', flag: '🇪🇸' },
-  zh: { label: '中文', flag: '🇨🇳' },
+  "zh-TW": { label: '繁體中文', flag: '🇹🇼' },
   pt: { label: 'Português', flag: '🇧🇷' },
   it: { label: 'Italiano', flag: '🇮🇹' },
+  ru: { label: 'Русский', flag: '🇷🇺' },
+  ko: { label: '한국어', flag: '🇰🇷' },
 } as const;
 
 interface HeaderProps {

@@ -2,30 +2,46 @@ import { Metadata } from 'next';
 import ContactForm from '@/components/ui/ContactForm';
 import Link from 'next/link';
 import { getURL } from '@/utils/helpers';
+import { Locale } from '@/lib/definitions';
+import { getIntl } from '@/lib/intl';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getURL()),
-  title: 'Contact Notebooklm Podcast - Get in Touch with Our AI Podcast Team',
-  description: 'Reach out to Notebooklm Podcast, your AI-powered personalized podcast generator. Have questions, feedback, or partnership inquiries? Our team is ready to assist. Connect with us today and explore how our innovative technology can transform your content into engaging audio experiences.',
-  alternates: {
-    canonical: `${getURL()}/contact`,
-  },
-};
-export default function ContactPage() {
+// Metadata will need to be generated dynamically for each language
+export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Promise<Metadata> {
+  const intl = await getIntl(lang);
+  
+  return {
+    metadataBase: new URL(getURL()),
+    title: intl.formatMessage({ id: 'page.contact.title' }),
+    description: intl.formatMessage({ id: 'page.contact.description' }),
+    alternates: {
+      canonical: `${getURL()}/contact`,
+    },
+  };
+}
+
+interface ContactPageProps {
+  params: {
+    lang: Locale;
+  };
+}
+
+export default async function ContactPage({ params: { lang } }: ContactPageProps) {
+  const intl = await getIntl(lang);
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl text-black font-bold mb-6">Tell us what you want</h1>
+      <h1 className="text-3xl text-black font-bold mb-6">
+        {intl.formatMessage({ id: 'page.contact.title' })}
+      </h1>
       <p className="mb-8 text-black">
-      What kind of religious conversations would you like to have? Let us know which religious figures or topics you'd like to explore in your dialogues.
+        {intl.formatMessage({ id: 'page.contact.description' })}
       </p>
       <ContactForm />
       <p className="mt-8">
-        <Link href="/" className="text-blue-600 hover:underline">
-          Return to Home
+        <Link href={`/${lang}`} className="text-blue-600 hover:underline">
+          {intl.formatMessage({ id: 'common.returnHome' })}
         </Link>
       </p>
     </div>
   );
 }
-
-export const runtime = 'edge';
